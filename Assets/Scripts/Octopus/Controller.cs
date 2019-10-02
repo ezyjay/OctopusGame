@@ -11,7 +11,7 @@ public class Controller : MonoBehaviour
 
     private Vector2 _inputDirection;
     private Vector2 _previousInputDirection = Vector2.zero;
-    private float _changeDirectionDeccelerationModifier = 0.5f;
+    private float _changeDirectionDeccelerationModifier = 0.9f;
 
     void Update()
     {
@@ -22,8 +22,8 @@ public class Controller : MonoBehaviour
         
         if (_inputDirection != Vector2.zero) { 
 
-            if (_inputDirection.normalized.x != _previousInputDirection.x || _inputDirection.normalized.y != _previousInputDirection.y)
-                _rb.velocity = _changeDirectionDeccelerationModifier * _rb.velocity;
+            // if (_inputDirection.normalized.x != _previousInputDirection.x)
+            //     _rb.velocity = _changeDirectionDeccelerationModifier * _rb.velocity;
 
             _rb.AddForce(_inputDirection.normalized * _speed);
 

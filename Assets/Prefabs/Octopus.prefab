@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3666607739125029454}
   m_Layer: 0
   m_Name: Octopus
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,6 +68,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _octopusColor: {fileID: 2100000, guid: c6d0440a1df6f6143bf0b48fb79d1223, type: 2}
   _raycastOrigin: {fileID: 6191967556882259810}
+  _colorLerpTime: 4
+  _timeToStayNewColorOnLeave: 10
 --- !u!114 &6739800758471578703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8733696550707956170}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.43199992, y: 0.419, z: -0.38399994}
+  m_LocalPosition: {x: 0.33, y: 0.22, z: -0.38399994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5495512659890365866}

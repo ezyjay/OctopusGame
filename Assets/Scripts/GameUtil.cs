@@ -8,7 +8,11 @@ public enum LayerType {
 
 public class GameUtil : MonoBehaviour
 {
-   
+    private GameObject _playerObject;
+    public GameObject PlayerObject { 
+        get => GameObject.FindGameObjectWithTag("Player");
+    }
+
     public static LayerMask GetLayerMask(LayerType layerType) {
         return LayerMask.GetMask(LayerMask.LayerToName((int)layerType));
     }
