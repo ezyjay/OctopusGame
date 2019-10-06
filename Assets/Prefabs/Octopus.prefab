@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2078554088177199082}
   - component: {fileID: 806840892880929565}
   - component: {fileID: 3666607739125029454}
+  - component: {fileID: 6245734422599769586}
   m_Layer: 0
   m_Name: Octopus
   m_TagString: Player
@@ -53,7 +54,8 @@ MonoBehaviour:
   _rb: {fileID: 3666607739125029454}
   _playerRotation: {fileID: 6739800758471578703}
   _deccelerationModifier: 0.975
-  _speed: 0.8
+  _speed: 2.8
+  _maxSpeed: 3.5
 --- !u!114 &8491642877983432761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +161,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &6245734422599769586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2707916880846933200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066c7b5fe02ab544a9e9544a03a0cbe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8733696550707956170
 GameObject:
   m_ObjectHideFlags: 0

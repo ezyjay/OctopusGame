@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5215468453926107991}
   - component: {fileID: 5003681754653855465}
   - component: {fileID: 1682737604892136285}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9108517821040352119}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TreasureChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 5663076094094412056}
   - component: {fileID: 250201320423882096}
   - component: {fileID: 7287440673361128862}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

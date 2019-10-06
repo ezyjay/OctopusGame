@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRotation : MonoBehaviour
+public class Rotation : MonoBehaviour
 {
     public float _rotationSpeed = 1f;
     
-    public void RotateTowardsInputDirection(Vector2 inputDir) {
+    public void RotateTowardsDirection(Vector2 dir) {
 
-        Vector3 rotation = AngleLerp(transform.rotation.eulerAngles, GetRotation(inputDir), _rotationSpeed * Time.deltaTime);
+        Vector3 rotation = AngleLerp(transform.rotation.eulerAngles, GetRotation(dir), _rotationSpeed * Time.deltaTime);
         Quaternion quat = Quaternion.Euler(0, rotation.y, rotation.z);
         transform.rotation = quat;
     }
 
-    public void RotateBack() {
+    public void RotateBack(Vector2 previousInputDir) {
 
         float yRotation = 0;
-        if (transform.rotation.eulerAngles.y > 90) yRotation = 180;
+        if (previousInputDir.x > 0.1f) yRotation = 0f;
+        else if (previousInputDir.x < -0.1f) yRotation = 180f;
+        else if (transform.rotation.eulerAngles.y > 90) yRotation = 180;
 
         Vector3 rotation = AngleLerp(transform.rotation.eulerAngles, new Vector3(0, yRotation, 0), _rotationSpeed * Time.deltaTime);
         Quaternion quat = Quaternion.Euler(0, rotation.y, rotation.z);
@@ -31,9 +33,9 @@ public class PlayerRotation : MonoBehaviour
         return new Vector3(xLerp, yLerp, zLerp); ;
     }
 
-    public Vector3 GetRotation(Vector2 inputDir) {
+    public Vector3 GetRotation(Vector2 dir) {
 
-        Vector2 normDir = inputDir.normalized;
+        Vector2 normDir = dir.normalized;
         float yAngle = 0f;
         float zAngle = 0f;
 
