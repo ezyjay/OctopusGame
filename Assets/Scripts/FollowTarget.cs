@@ -12,7 +12,9 @@ public class FollowTarget : MonoBehaviour
     public bool _onlyRotateInX;
     public Rotation _rotation;
 
-    private void FixedUpdate()
+    protected Vector2 _direction;
+
+    protected virtual void FixedUpdate()
     {
         Vector3 newPos = Vector2.zero;
         if (_onlyFollowInX)
@@ -27,5 +29,6 @@ public class FollowTarget : MonoBehaviour
                 _rotation.RotateTowardsDirection((Vector2)transform.position - _target.CurrentTarget);
         }
         transform.position = Vector3.Lerp(transform.position, newPos, _moveTime * Time.deltaTime);
+        _direction = (newPos - transform.position).normalized;
     }
 }
