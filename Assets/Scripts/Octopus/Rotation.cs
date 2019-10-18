@@ -25,7 +25,7 @@ public class Rotation : MonoBehaviour
         transform.rotation = quat;
     }
 
-    Vector3 AngleLerp(Vector3 startAngle, Vector3 finishAngle, float t) {
+    public static Vector3 AngleLerp(Vector3 startAngle, Vector3 finishAngle, float t) {
 
         float xLerp = Mathf.LerpAngle(startAngle.x, finishAngle.x, t);
         float yLerp = Mathf.LerpAngle(startAngle.y, finishAngle.y, t);
