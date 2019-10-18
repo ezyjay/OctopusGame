@@ -12,13 +12,19 @@ public class SharkAttack : FollowTarget
    private RaycastHit _raycastHit;
    private float _timePlayerDetected;
    private bool _playerDetected;
+   private ColorDetection _playerColor;
+
+   private void Awake() {
+	   _playerColor = GameUtil.PlayerObject.GetComponent<ColorDetection>();
+   }
 
    protected override void FixedUpdate()
    {
 		Debug.DrawRay(_raycastOrigin.position, _direction * _detectionDistance, Color.red);
 		if (!_playerDetected && Physics.SphereCast(_raycastOrigin.position, 1.3f, _direction, out _raycastHit, _detectionDistance, GameUtil.GetLayerMask(LayerType.PLAYER))) {
 			_timePlayerDetected = Time.time;
-			_playerDetected = true;
+			if (!_playerColor.IsHidden())
+				_playerDetected = true;
 		} 
 
 		if (_playerDetected) 

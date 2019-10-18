@@ -13,8 +13,13 @@ public class ColorDetection : MonoBehaviour
     private Color _newColor;
     private RaycastHit _raycastHit;
     private bool _doColorLerp, _doInverseColorLerp;
-    private bool _isOverColorObject;
     private float _timeChangedColor = 0f;
+    private bool _isOverColorObject;
+	private bool _hasAssimilatedColor;
+
+	public bool IsHidden() {
+		return _isOverColorObject && _hasAssimilatedColor;
+	}
 
     private void Awake() {
         _originalColor = _octopusColor.color;
@@ -39,10 +44,12 @@ public class ColorDetection : MonoBehaviour
             _newColor = renderer.material.color;
             _doColorLerp = true;
             _timeChangedColor = Time.time;
+			_hasAssimilatedColor = true;
         } 
         //Have we stopped clicking or left the color object
         else if (Input.GetMouseButtonUp(0) || !_isOverColorObject && Time.time - _timeChangedColor > _timeToStayNewColorOnLeave) 
         {
+			_hasAssimilatedColor = false;
             _newColor = _originalColor;
         }
 
